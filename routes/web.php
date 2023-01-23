@@ -12,4 +12,6 @@ Route::get('/courses', function() {
     return view('courses');
 })->name("courses");
 
-Route::get('/test', [CourseController::class, 'Skillbox']);
+Route::get('/test', [CourseController::class, 'ParseAgregator']);
+
+Route::get('/school', [SchoolController::class, 'ParseSchool']);
