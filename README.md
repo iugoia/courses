@@ -22,5 +22,8 @@
     <pre class="notranslate"><code>php artisan storage:link
 </code></pre>
     <p>Она нужна для создания ссылки на изображения в проекте</p>
+    <li>Откройте phpMyAdmin и создайте базу данных utf8mb4_unicode_ci с названием courses и пропишите в терминал следующую команду:</li>
+<pre class="notranslate"><code>php artisan migrate
+</code></pre>
     <li>Запустите проект через OpenServer</li>
 </ol>
