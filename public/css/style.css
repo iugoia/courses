@@ -1,0 +1,526 @@
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ol,
+li,
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+body {
+    height: 100%;
+    color: #2B2B2B;
+    font-family: 'Montserrat';
+    font-size: 1rem;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 900;
+}
+
+h2 {
+    padding: 40px 0;
+    font-size: 30px;
+}
+
+.content__aft__header {
+    background: #F8F8F8;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.about__col-1 {
+    line-height: 30px;
+}
+
+.about__col-1 p {
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.content__aft__header>.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.about__col-2 {
+    position: relative;
+}
+
+.content__aft__header::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    background: url("http://kursach/public/storage/user__about.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -54px;
+    width: 755px;
+    height: 555px;
+}
+
+.about__col {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.about__col-1 {
+    padding: 170px 0;
+}
+
+.advantages__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.adv__title {
+    padding-bottom: 25px;
+    position: relative;
+}
+
+.advantage__item:first-of-type .adv__title::before {
+    content: '';
+    position: absolute;
+    background: url("http://kursach/public/storage/bigvibor.svg");
+    width: 60px;
+    height: 50px;
+    left: 0;
+}
+
+.advantage__item:nth-child(2) .adv__title::before {
+    content: '';
+    position: absolute;
+    background: url("http://kursach/public/storage/actualinfo.svg");
+    width: 66px;
+    height: 50px;
+    left: 0;
+}
+
+.advantage__item:last-of-type .adv__title::before {
+    content: '';
+    position: absolute;
+    background: url("http://kursach/public/storage/video-player.svg");
+    width: 54px;
+    height: 50px;
+    left: 0;
+}
+
+.advantage__item p {
+    color: #7E7E7E;
+    line-height: 24px;
+}
+
+.advantages h2 {
+    text-align: center;
+}
+
+.adv__title h3 {
+    width: 176px;
+    font-size: 20px;
+    margin: 0 auto;
+}
+
+.advantage__item {
+    flex: 0 0 29%;
+    max-width: 29%;
+}
+
+footer {
+    background: #000;
+    color: #FFF;
+    padding: 20px 0;
+}
+
+footer>.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-col,
+.social-medias {
+    display: flex;
+    align-items: center;
+}
+
+.social-media:not(:last-of-type) {
+    margin-right: 15px;
+}
+
+.logo-footer {
+    margin-right: 40px;
+}
+
+.social-medias img {
+    width: 15px;
+    height: 15px;
+}
+
+.view__p{
+    white-space: pre-line;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+@media (min-width: 40em) {
+    .user__navigation::before {
+        width: 40em;
+    }
+}
+
+
+
+@media (min-width: 40em) {
+    .user__navigation::before {
+        width: 40em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1100px) {
+    .container {
+        max-width: 700px !important;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 1200px) {
+    .about__col {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .content__aft__header::after {
+        background: none;
+    }
+
+    .content__aft__header {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 550px !important;
+        margin: 0 auto;
+        padding: 0 25px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .user__navigation a {
+        margin: 0.5em 0;
+        padding: 0.2em 2em;
+        color: white;
+        font-weight: 500;
+        font-size: 1.4rem;
+        transform: translateX(-100%);
+        transition: opacity 0.5s, transform 0.5s;
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .user__navigation a:nth-child(1) {
+        transition-delay: 0s, 100ms;
+    }
+
+    .user__navigation a:nth-child(2) {
+        transition-delay: 0s, 150ms;
+    }
+
+    .user__navigation a:nth-child(3) {
+        transition-delay: 0s, 200ms;
+    }
+
+    .user__navigation a:nth-child(4) {
+        transition-delay: 0s, 250ms;
+    }
+
+    .user__navigation a:nth-child(5) {
+        transition-delay: 0s, 300ms;
+    }
+
+    .user__navigation a:hover,
+    .user__navigation a:focus {
+        opacity: .6;
+    }
+
+    main {
+        overflow: hidden;
+    }
+
+    main .content {
+        transform: translate3d(0, 0, 0);
+        will-change: transform, filter;
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    [id="navcheck"]:checked+label::before {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    [id="navcheck"]:checked+label .burger::before,
+    [id="navcheck"]:checked+label .burger::after {
+        width: 141.42%;
+    }
+
+    [id="navcheck"]:checked+label .burger::before {
+        transform: rotate(45deg) translateY(-50%);
+    }
+
+    [id="navcheck"]:checked+label .burger::after {
+        transform: rotate(-45deg) translateY(50%);
+    }
+
+    [id="navcheck"]:checked+label .burger .bar {
+        transform: scale(0.1);
+    }
+
+    [id="navcheck"]:checked~nav {
+        transform: translateX(0);
+    }
+
+    [id="navcheck"]:checked~nav::before {
+        transform: skewX(15deg) translateX(0);
+    }
+
+    [id="navcheck"]:checked~nav a {
+        transform: translateX(0);
+    }
+
+    [id="navcheck"]:checked~main .content {
+        transform: translateX(3em);
+        transform-origin: left center;
+        filter: blur(2px);
+    }
+
+    .visuallyhidden {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    #navcheck:checked+.header__label .burger::after,
+    #navcheck:checked+.header__label .burger::before {
+        background: #FFF;
+    }
+
+    #navcheck {
+        position: fixed;
+        opacity: 0;
+    }
+
+    .header__label {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+    }
+
+    .header__label::before {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(10, 38, 57, 0.75);
+        content: '';
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .header__label .burger {
+        position: fixed;
+        top: 1em;
+        left: 1em;
+        z-index: 3;
+        width: 2em;
+        height: 2em;
+        margin: 0;
+        padding: 0;
+        transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .header__label .burger::before,
+    .header__label .burger .bar,
+    .header__label .burger::after {
+        position: absolute;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 12%;
+        background: #2B2B2B;
+        content: '';
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .header__label .burger .bar {
+        top: 44%;
+    }
+
+    .header__label .burger::before {
+        top: 0;
+        transform-origin: top left;
+    }
+
+    .header__label .burger::after {
+        bottom: 0;
+        transform-origin: bottom left;
+    }
+
+    input:focus+.header__label .burger,
+    .header__label:hover .burger {
+        opacity: 0.75;
+    }
+
+    .user__navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 2;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        transform: translate3d(0, 0, 0);
+        /* material acceleration */
+        transform: translateX(-100%);
+        will-change: transform;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .user__navigation::before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        width: 40em;
+        background: #2B2B2B;
+        content: '';
+        transform: skewX(15deg) translateX(-100%);
+        transform-origin: bottom left;
+        will-change: transform;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+}
+
+@media (max-width: 1439px) {
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .about__col-1 {
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+
+    .content__aft__header::after {
+        background-position-x: 150px;
+    }
+
+    .advantage__item {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .adv__title h3 {
+        width: unset;
+        margin-left: 70px;
+    }
+
+    .adv__title {
+        display: flex;
+        align-items: center;
+    }
+
+    .advantage__item:not(:last-of-type) {
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width: 769px) {
+
+    #navcheck,
+    .header__label {
+        display: none;
+    }
+
+    header>.container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header {
+        padding: 25px 0;
+        border-bottom: 1px solid #EDEDED;
+    }
+
+    header a {
+        color: #000;
+        transition: .3s;
+    }
+
+    header a:hover {
+        color: #00D254;
+    }
+
+    header a:not(:first-of-type) {
+        margin-left: 35px;
+    }
+
+    .user__navigation {
+        display: flex;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
