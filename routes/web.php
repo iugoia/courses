@@ -10,7 +10,6 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 
 Route::get('/test', [CourseController::class, 'ParseAgregator']);

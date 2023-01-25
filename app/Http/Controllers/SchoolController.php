@@ -31,7 +31,9 @@ class SchoolController extends Controller
 
     public function ParseSchool()
     {
+        DB::statement("SET foreign_key_checks=0");
         DB::table('schools')->truncate();
+        DB::statement("SET foreign_key_checks=1");
 
         $arrDataCardsArr = array();
         for ($i = 1; $i <= 6; $i++) {

@@ -11,7 +11,6 @@ class CourseController extends Controller
 {
     public function index()
     {
-//        $courses = DB::table('courses')->get();
         $count = DB::table('courses')->count();
         $min = DB::table('courses')->min('price');
         $max = DB::table('courses')->max('price');
