@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use phpQuery;
+
 
 class CourseController extends Controller
 {
+    public function index()
+    {
+//        $courses = DB::table('courses')->get();
+        $count = DB::table('courses')->count();
+        $min = DB::table('courses')->min('price');
+        $max = DB::table('courses')->max('price');
+        return view('courses', compact('count', 'min', 'max'));
+    }
+
     public function Parse($url)
     {
         $curl = curl_init($url);
@@ -24,6 +35,8 @@ class CourseController extends Controller
 
     public function ParseAgregator()
     {
+        DB::table('courses')->truncate();
+
         $html = $this->Parse("https://choosecourse.ru/courses");
         $pq = phpQuery::newDocument($html);
 
@@ -32,71 +45,36 @@ class CourseController extends Controller
 
         foreach ($arrCourses as $course) {
             $pq = pq($course);
+            $price = preg_replace("/[^,.0-9]/", '', $pq->find(".container > p:nth-child(5)")->text());
+            if ($price == '')
+                $price = 0;
+            $price_credit = preg_replace("/[^,.0-9]/", '', $pq->find(".container > p:nth-child(6)")->text());
+            if ($price_credit == '')
+                $price_credit = 0;
+            $rck = str_replace(',', '.', $pq->find(".container > p:nth-child(3)")->text());
+            if ($rck == '' || $rck == '?')
+                $rck = 0;
+
             $arrDataCourses[] = [
                 'name' => $pq->find("h2 > a")->text(),
-                'price' => preg_replace("/[^,.0-9]/", '', $pq->find(".container > p:nth-child(5)")->text()),
-                'rck' => $pq->find(".container > p:nth-child(3)")->text(),
-                'price_credit' => preg_replace("/[^,.0-9]/", '', $pq->find(".container > p:nth-child(6)")->text()),
+                'price' => $price,
+                'rck' => $rck,
+                'price_credit' => $price_credit,
                 'during' => $pq->find(".container > p:nth-child(7)")->text(),
                 'school' => $pq->find(".container > p:nth-child(4) > a:first-child")->text(),
                 'link' => $pq->find("h2 > a")->attr("href")
             ];
         }
+        DB::table('courses')->insert($arrDataCourses);
     }
 
-//    public function Skillbox()
-//    {
-//        $i = 1;
-//
-//        while ($i <= 36){
-//            $skillbox = $this->Parse("https://skillbox.ru/courses/?page=" . $i);
-//            $pq = phpQuery::newDocument($skillbox);
-//
-//            $listLinks = $pq->find(".ui-product-card-main__wrap");
-//            $listLinksData = array();
-//
-//            foreach ($listLinks as $link) {
-//                $listLinksData[] = pq($link)->attr("href");
-//            }
-//            $courseCardsData = array();
-//            foreach ($listLinksData as $link){
-//                $page = $this->Parse($link);
-//                $pq = phpQuery::newDocument($page);
-//
-//
-//                $date = $pq->find(".price-info__data li:first-child > b")->text();
-//                if (empty($date)){
-//                    $date = $pq->find(".tariffs__info li:first-child > b")->text();
-//                }
+    public function about()
+    {
+        $numSchools = DB::table('schools')->count();
+        $numCourses = DB::table('courses')->count();
 
-//                $places = $pq->find(".price-info__data li:last-child > b")->text();
-//                if (empty($places)){
-//                    $places = $pq->find(".tariffs__info li:last-child > b")->text();
-//                }
-//
-//                $price_credit = $pq->find(".tariffs__list > li:first-child .tariffs__prices > li:first-child")->text();
-//                if (empty($price_credit)){
-//                    $price_credit = $pq->find(".price-info__list > li:first-child")->text();
-//                }
-//
-//                var_dump($price_credit);
-//
-//                $courseCardsData[] = [
-//                    'name' => $pq->find("h1")->text(),
-//                    'oldprice' => 1,
-//                    'price' => 1,
-//                    'price_credit' => 1,
-//                    'school' => "Skillbox",
-//                    'places' => $places,
-//                    'tiny_desc' => $pq->find(".start-screen-v1__desc")->text(),
-//                    'start_date' => $date,
-//                    'about' => $pq->find("#market"),
-//                    'skills' => $pq->find("#skills"),
-//                    'link' => $link,
-//                    'comments' => $pq->find("#comments")
-//                ];
-//            }
-//            $i++;
-//        }
-//    }
+        $schools = DB::table('schools')->inRandomOrder()->limit(6)->get();
+
+        return view('about', compact('numCourses', 'numSchools', 'schools'));
+    }
 }

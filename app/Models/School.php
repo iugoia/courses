@@ -15,6 +15,8 @@ class School extends Model
         'name',
         'description',
         'link',
-        'right'
+        'right',
+        'image',
+        'comments'
     ];
 }

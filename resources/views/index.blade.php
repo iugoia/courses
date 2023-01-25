@@ -1,40 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.main')
+@section('title')
+    Главная страница
+@endsection
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{asset('public/css/style.css?' . time())}}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="wrapper">
-        <header>
-            <div class="container">
-                <div class="logo">
-                    LOGO
-                </div>
-                <input type="checkbox" id="navcheck" role="button" title="menu">
-                <label for="navcheck" class="header__label">
-                    <span class="burger">
-                        <span class="bar">
-                            <span class="visuallyhidden">Меню</span>
-                        </span>
-                    </span>
-                </label>
-                <nav class="user__navigation">
-                    <a href="{{route("courses")}}">Курсы</a>
-                    <a href="#">Школы</a>
-                    <a href="#">Отзывы о школах</a>
-                    <a href="#">О нас</a>
-                    <a href="#">Блог</a>
-                </nav>
-            </div>
-        </header>
+@section('content')
         <main>
             <section class="content__aft__header">
                 <div class="container">
@@ -49,7 +18,7 @@
             </section>
             <section class="advantages">
                 <div class="container">
-                    <h2>Наши преимущества</h2>
+                    <h2 class="h2">Наши преимущества</h2>
                     <ul class="advantages__list">
                         <li class="advantage__item">
                             <div class="adv__ctn">
@@ -94,38 +63,4 @@
                 </div>
             </section>
         </main>
-        <footer>
-            <div class="container">
-                <div class="footer-col">
-                    <div class="logo-footer">
-                        Logo
-                    </div>
-                    <div class="copyright">
-                        &copy; 2022. Все права защищены
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <div class="social-medias">
-                        <div class="social-media">
-                            <a href="vk.com">
-                                <img src="{{asset("public/storage/icons/vk.svg")}}" alt="">
-                            </a>
-                        </div>
-                        <div class="social-media">
-                            <a href="telegram.com">
-                                <img src="{{asset("public/storage/icons/tele.svg")}}" alt="">
-                            </a>
-                        </div>
-                        <div class="social-media">
-                            <a href="youtube.com">
-                                <img src="{{asset("public/storage/icons/youtube.svg")}}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-</body>
-
-</html>
+@endsection
