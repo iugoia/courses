@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-    
+
+    public $timestamps = false;
+
     protected $fillable = [
         'name',
         'oldprice',
@@ -21,8 +23,6 @@ class Course extends Model
         'about',
         'skills',
         'link',
-        'comments',
-        'created_at',
-        'updated_at'
+        'comments'
     ];
 }

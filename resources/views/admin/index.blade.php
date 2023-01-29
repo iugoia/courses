@@ -5,5 +5,7 @@
 @endsection
 
 @section('content')
-    Админ панель
+    <div class="wrapper">
+
+    </div>
 @endsection

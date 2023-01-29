@@ -32,9 +32,6 @@
                                             <p class="comment_date">
                                                 {{$comment->created_at}}
                                             </p>
-                                            <p class="comment_in">
-                                                Источник: {{$comment->site}}
-                                            </p>
                                         </div>
                                         <p class="comment_description">{{$comment->comment}}</p>
                                     </div>
@@ -60,11 +57,6 @@
                                     <input type="email" class="form-input" name="email" required>
                                     <label class="form-label">Email <span class="red">*</span></label>
                                 </div>
-                                <div class="form-item">
-                                    <input type="text" class="form-input" name="site">
-                                    <label class="form-label">Сайт</label>
-                                </div>
-
                                 <textarea class="message-form" name="comment" cols="30" rows="10" placeholder="Комментарий"></textarea>
                                 <button type="submit">Отправить комментарий</button>
                             </form>

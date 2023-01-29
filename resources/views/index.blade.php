@@ -84,7 +84,7 @@
         </main>
 @endsection
 @section('custom_js')
-    <script defer>
+    <script>
         window.onload = function() {
             const screenWidth = window.screen.width;
             if (screenWidth > 1400){

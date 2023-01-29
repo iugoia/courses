@@ -2,17 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class AdminController extends Controller
 {
-    public function index(Request $request)
+    public function register(Request $request)
     {
-        if ($request->login == 'hajime89' && $request->password == "qwerty"){
+        $user = User::create([
+            'login' => $request->login,
+            'password' => Hash::make($request->password),
+        ]);
+        if ($user)
+            return redirect(route('admin.login'));
+        return redirect()->back();
+    }
+
+    public function auth(Request $request)
+    {
+        $formFields = $request->only(['login', 'password']);
+
+        if (Auth::attempt($formFields)){
             return redirect(route('admin.panel'));
         }
-        return redirect()->back()->with('error', "Неверный логин или пароль");
+
+
+
+//        $user = User::query()->first();
+//
+//        $formFields = ['login' => $request->login, 'password' => $request->password];
+//
+//        if (Auth::attempt($formFields)){
+//            return redirect(route('admin.panel'));
+//        }
+//        var_dump($user->password);
+//        var_dump($formFields['password']);
+//        dd(Hash::check($request->password, $user->password));
+//        dd(Auth::attempt($formFields));
+//        dd($formFields);
+//        return redirect()->back();
     }
 }

@@ -2,6 +2,7 @@
     <div class="container">
         <div>
             <input type="text" placeholder="Курс, школа.." wire:model="searchTerm" class="form-control search-form">
+            <p class="courses__gray">Обновлено: <span class="date_black">{{$date}}</span></p>
         </div>
     </div>
     <ul class="couse_list">

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('during')->nullable();
             $table->string('school');
             $table->string('link')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->default(\Illuminate\Support\Facades\DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

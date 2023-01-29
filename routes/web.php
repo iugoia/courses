@@ -26,9 +26,13 @@ Route::get('/school', [SchoolController::class, 'index'])->name('schools');
 
 Route::get('/school/{id}', [SchoolController::class, 'show'])->name('school');
 
-Route::get('/admin/login', function () {
-    return view('admin.form');
+Route::get('/admin/register', function () {
+    return view('admin-form');
 });
+
+Route::get('/admin/login', function() {
+    return view('admin.form');
+})->name('admin.login');
 
 Route::get('/admin-panel', function () {
     return view('admin.index');

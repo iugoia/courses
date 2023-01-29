@@ -24,7 +24,8 @@
                 {{session()->get('error')}}
             </div>
         @endif
-        <form action="{{route('login')}}" method="post" class="form-admin-panel">
+        <form action="{{route('admin.auth')}}" method="post" class="form-admin-panel">
+            @csrf
             @method('POST')
             <label for="login">Логин</label>
             <input type="text" class="form-control mb-2" name="login" id="login">

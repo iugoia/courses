@@ -675,12 +675,17 @@ footer>.container {
     transition: box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1) 0s;
 }
 
-
-
-
 .paginator-center{
     width: max-content;
     margin: 0 auto;
+}
+
+.courses__all > .container > div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
 .search-form{
@@ -743,12 +748,17 @@ footer>.container {
     cursor: pointer;
 }
 
-.courses__all > .container > div {
-    width: 100%;
+.date_black{
+    color: #333;
 }
 
-.courses__all > .container > div > input{
-    margin-bottom: 40px;
+footer{
+    margin-top: auto;
+}
+
+.courses__all > .container > div {
+    width: 100%;
+    color: #A3AABC;
 }
 
 .courses__all > .container > div > input::placeholder{
@@ -921,6 +931,51 @@ footer>.container {
     left: 0;
     max-width: 370px;
     top: 0;
+}
+
+.error-area {
+    min-height: 100vh;
+    background: #F3F8FB;
+}
+
+.ptb--100 {
+    padding: 100px 0;
+}
+
+.text-center {
+    text-align: center!important;
+}
+
+.error-content {
+    background: #fff;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 70px 30px;
+}
+
+.error-content h2 {
+    font-size: 98px;
+    font-weight: 800;
+    color: #686cdc;
+    margin-bottom: 28px;
+    text-shadow: -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 3px 3px 0 #ffffff, 4px 4px 0 #6569dc, 5px 5px 0 #6569dc, 6px 6px 0 #6569dc, 7px 7px 0 #6569dc;
+    font-family: 'lato', sans-serif;
+}
+
+.error-content p {
+    font-size: 17px;
+    color: #787bd8;
+    font-weight: 600;
+}
+
+.error-content a {
+    display: inline-block;
+    margin-top: 40px;
+    background: #656aea;
+    color: #fff;
+    padding: 16px 26px;
+    border-radius: 3px;
 }
 
 .school_card a{
@@ -1157,6 +1212,11 @@ footer>.container {
 
 .about__schools{
     margin-bottom: 40px;
+}
+
+.form-admin{
+    max-width: 500px;
+    margin: 60px auto;
 }
 
 .about__schools h2{
@@ -2173,6 +2233,10 @@ footer>.container {
     .user__navigation {
         display: flex;
         align-items: center;
+    }
+
+    .link__none{
+        display: none;
     }
 }
 

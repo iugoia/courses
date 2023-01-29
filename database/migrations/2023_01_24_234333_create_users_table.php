@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('login', 255);
             $table->string('password');
-            $table->timestamps();
+            $table->boolean('isAdmin')->default(0);
         });
     }
 
