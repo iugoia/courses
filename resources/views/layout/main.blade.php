@@ -41,6 +41,9 @@
                     <a href="{{route("schools")}}">Школы</a>
                     <a href="{{route('about-rck')}}">РЦК</a>
                     <a href="{{route('about')}}">О нас</a>
+                    @if (\Illuminate\Support\Facades\Auth::user())
+                        <a href="{{route('admin.panel')}}">Dashboard</a>
+                    @endif
                 </nav>
             </div>
         </header>

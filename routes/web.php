@@ -12,10 +12,6 @@ Route::get('/', function () {
 
 Route::get('/courses', [CourseController::class, 'index'])->name('courses');
 
-Route::get('/test', [CourseController::class, 'ParseAgregator']);
-
-Route::get('/school-parse', [SchoolController::class, 'ParseSchool']);
-
 Route::get('/about', [CourseController::class, 'about'])->name('about');
 
 Route::get('/about-rck', function () {
@@ -37,3 +33,15 @@ Route::get('/admin/login', function() {
 Route::get('/admin-panel', function () {
     return view('admin.index');
 })->name('admin.panel')->middleware('auth');
+
+Route::middleware('auth')->group(function(){
+    Route::get('admin/courses', function() {
+        return view('admin.courses.courses');
+    })->name('admin.courses');
+    Route::get('admin/schools', function () {
+        return view('admin.schools.index');
+    })->name('admin.schools');
+    Route::get('/admin/comments', function() {
+        return view('admin.comments.index');
+    })->name('admin.comments');
+});

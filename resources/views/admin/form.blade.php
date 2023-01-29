@@ -32,6 +32,9 @@
             <label for="password">Пароль</label>
             <input type="password" class="form-control mb-4" name="password" id="password">
             <button type="submit" class="btn btn-primary">Войти</button>
+            <p class="text-center mt-5">
+                <a href="{{route('index')}}">Вернуться на главную страницу</a>
+            </p>
         </form>
     </section>
 @endsection

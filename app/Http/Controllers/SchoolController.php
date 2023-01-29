@@ -33,6 +33,7 @@ class SchoolController extends Controller
     {
         DB::statement("SET foreign_key_checks=0");
         DB::table('schools')->truncate();
+        DB::table('comments')->truncate();
         DB::statement("SET foreign_key_checks=1");
 
         $arrDataCardsArr = array();
@@ -58,5 +59,6 @@ class SchoolController extends Controller
             }
         }
         DB::table('schools')->insert($arrDataCardsArr);
+        return redirect()->back()->with('success', "Школы успешно обновлены!");
     }
 }

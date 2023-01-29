@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use phpQuery;
@@ -65,6 +66,7 @@ class CourseController extends Controller
             ];
         }
         DB::table('courses')->insert($arrDataCourses);
+        return redirect()->back()->with('success', "Курсы успешно обновлены!");
     }
 
     public function about()
