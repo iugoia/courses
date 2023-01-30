@@ -60,7 +60,6 @@
                                             <th>#</th>
                                             <th>Имя пользователя</th>
                                             <th>Почта</th>
-                                            <th>Сайт</th>
                                             <th>Школа</th>
                                             <th>Комментарий</th>
                                             <th>Дата написания отзыва</th>
@@ -72,7 +71,6 @@
                                                 <td>{{$comment->id}}</td>
                                                 <td>{{$comment->name}}</td>
                                                 <td>{{$comment->email}}</td>
-                                                <td>{{$comment->site}}</td>
                                                 <td>
                                                     <?php
                                                         $school = \App\Models\School::find($comment->school_id);

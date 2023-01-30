@@ -52,13 +52,34 @@
                                 <div class="form-item">
                                     <input type="text" class="form-input" required name="name">
                                     <label class="form-label">Имя <span class="red">*</span></label>
+                                    @error('name')
+                                    <div class="text-danger mt-2">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="form-item">
                                     <input type="email" class="form-input" name="email" required>
                                     <label class="form-label">Email <span class="red">*</span></label>
+                                    @error('email')
+                                    <div class="text-danger mt-2">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <textarea class="message-form" name="comment" cols="30" rows="10" placeholder="Комментарий"></textarea>
-                                <button type="submit">Отправить комментарий</button>
+                                @error('comment')
+                                <div class="text-danger mt-2">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                                <x-captcha-box />
+                                @error('captcha')
+                                <div class="text-danger mt-2">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                                <button type="submit" data-sitekey="{{env('CAPTCHA_SITE_KEY')}}" data-callback='handle' data-action='submit'>Отправить комментарий</button>
                             </form>
                         </div>
                     </div>
