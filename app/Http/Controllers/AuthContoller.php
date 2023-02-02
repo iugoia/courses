@@ -16,6 +16,6 @@ class AuthContoller extends Controller
             Auth::login($user);
             return redirect(route('admin.panel'));
         }
-        return redirect()->back();
+        return redirect()->back()->with('error', "Пользователь не найден");
     }
 }

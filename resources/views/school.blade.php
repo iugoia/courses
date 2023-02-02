@@ -2,7 +2,7 @@
 
 @foreach($school as $item)
 @section('title')
-    {{$item->name}}
+    {{$item->name}} | Онлайн-школа
 @endsection
 @endforeach
 
@@ -69,12 +69,6 @@
                                 </div>
                                 <textarea class="message-form" name="comment" cols="30" rows="10" placeholder="Комментарий"></textarea>
                                 @error('comment')
-                                <div class="text-danger mt-2">
-                                    {{$message}}
-                                </div>
-                                @enderror
-                                <x-captcha-box />
-                                @error('captcha')
                                 <div class="text-danger mt-2">
                                     {{$message}}
                                 </div>

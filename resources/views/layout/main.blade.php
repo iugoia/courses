@@ -55,7 +55,7 @@
                         Logo
                     </div>
                     <div class="copyright">
-                        &copy; 2022. Все права защищены
+                        &copy; 2023. Все права защищены
                     </div>
                 </div>
                 <div class="footer-col">

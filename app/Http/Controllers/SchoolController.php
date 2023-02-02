@@ -12,7 +12,6 @@ class SchoolController extends Controller
     public function index()
     {
         $schools = DB::table('schools')->get();
-
         return view('schools', compact('schools'));
     }
 

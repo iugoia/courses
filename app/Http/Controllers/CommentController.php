@@ -14,17 +14,12 @@ class CommentController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'min:2', 'max:30'],
             'email' => ['required', 'string', 'email', 'max:100'],
-            'comment' => ['required', 'string', 'min:10'],
-            "captcha" => "captcha"
+            'comment' => ['required', 'string', 'min:10']
         ]);
         if ($validator->fails())
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-        if(!app('captcha')->isValid($request->captcha))
-        {
-            return back()->withErrors('Неправильно введена капча');
-        }
 
         Comment::create($request->all());
         return redirect()->back()->with('success', 'Отзыв успешно добавлен');
